@@ -28,7 +28,10 @@ $respuesta = $cliente->generarPresupuesto( new generarPresupuesto($fechaPresupue
 
 //var_dump($respuesta); 
 
-if($respuesta->presupuestoGeneradoCorrectamente == 1){
+if($respuesta->error != ""){
+	print $respuesta->error;
+}
+else if($respuesta->presupuestoGeneradoCorrectamente == 1){
 	print 'El presupuesto '.$respuesta->idPresupuesto.' se ha generado correctamente.';
 }
 else{

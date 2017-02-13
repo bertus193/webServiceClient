@@ -19,7 +19,10 @@ $respuesta = $cliente->consultaCodigoPostal( new consultaCodigoPostal($codigo, $
 
 //var_dump($respuesta); 
 
-if($respuesta->poblacion == null){
+if($respuesta->error != ""){
+	print $respuesta->error;
+}
+else if($respuesta->poblacion == null){
 	print 'No existe el código postal '.$respuesta->codigoPostal.' en la base de datos';
 }
 else{

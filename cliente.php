@@ -7,7 +7,9 @@
 
 function submit(nombre, url) {
 	var SoapKey, datos, datos2, datos3, datos4 = "";
+	console.log(nombre+'_SoapKey');
 	SoapKey = document.getElementById(nombre+'_SoapKey').value;
+	console.log(SoapKey);
 	datos = document.getElementById(nombre).value;
 
 	if(document.getElementById(nombre+'2')){ //generarPresupuesto
@@ -108,7 +110,7 @@ function submit(nombre, url) {
 					<div class="navbar-form">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto"  placeholder="Fecha presupuesto" type="text">
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto"  placeholder="Fecha presupuesto" type="date">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto2" placeholder="ID cliente" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto3" placeholder="Referencia producto" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto4" placeholder="Cantidad producto" type="text">
