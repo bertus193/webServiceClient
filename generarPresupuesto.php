@@ -22,26 +22,32 @@ class generarPresupuesto {
 	}
 }
 
-try{
-	
-	$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
+$regex = "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/";
+if (!preg_match($regex, $fechaPresupuesto)) {
+    echo 'La fecha debe seguir el formato YYYY-MM-DD';
+}
+else{
+	try{
 
-	$respuesta = $cliente->generarPresupuesto( new generarPresupuesto($fechaPresupuesto, $idCliente, $referenciaProducto, $cantidadProducto, $SoapKey));
+		$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-	//var_dump($respuesta); 
+		$respuesta = $cliente->generarPresupuesto( new generarPresupuesto($fechaPresupuesto, $idCliente, $referenciaProducto, $cantidadProducto, $SoapKey));
 
-	if($respuesta->error != ""){
-		print $respuesta->error;
+		//var_dump($respuesta); 
+
+		if($respuesta->error != ""){
+			print $respuesta->error;
+		}
+		else if($respuesta->presupuestoGeneradoCorrectamente == 1){
+			print 'El presupuesto '.$respuesta->idPresupuesto.' se ha generado correctamente.';
+		}
+		else{
+			print 'Ha habido algún error';
+		}
+
+	}catch (SoapFault $e){
+		print 'No hay conexión con el WebService'.$e;	
 	}
-	else if($respuesta->presupuestoGeneradoCorrectamente == 1){
-		print 'El presupuesto '.$respuesta->idPresupuesto.' se ha generado correctamente.';
-	}
-	else{
-		print 'Ha habido algún error';
-	}
-
-}catch (SoapFault $e){
-	print 'No hay conexión con el WebService';	
 }
 
 ?>
