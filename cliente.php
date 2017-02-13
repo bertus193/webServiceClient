@@ -7,15 +7,15 @@
 
 function submit(nombre, url) {
 	var SoapKey, datos, datos2, datos3, datos4 = "";
-	console.log(nombre+'_SoapKey');
 	SoapKey = document.getElementById(nombre+'_SoapKey').value;
-	console.log(SoapKey);
 	datos = document.getElementById(nombre).value;
 
-	if(document.getElementById(nombre+'2')){ //generarPresupuesto
+	if(document.getElementById(nombre+'2')){ //solicitarPresupuesto
 		datos2 = document.getElementById(nombre+'2').value;
-		datos3 = document.getElementById(nombre+'3').value;
-		datos4 = document.getElementById(nombre+'4').value;
+		if(document.getElementById(nombre+'3')){ //generarPresupuesto
+			datos3 = document.getElementById(nombre+'3').value;
+			datos4 = document.getElementById(nombre+'4').value;
+		}
 	}
 
 	var respInput = document.getElementById(nombre+"_res");
@@ -91,13 +91,13 @@ function submit(nombre, url) {
 					<div class="navbar-form">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="solicitarPresupuesto_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="referenciaPieza" placeholder="Referencia pieza" type="text">
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="solicitarPresupuesto" placeholder="Referencia pieza" type="text">
 						<div class="form-group">
-							<input class="form-control" id="solicitarPresupuesto" placeholder="IBAN" type="text" style="width: 330px;">
+							<input class="form-control" id="solicitarPresupuesto2" placeholder="idProveedor" type="text" style="width: 330px;">
 						</div>
 						<button onClick="submit('solicitarPresupuesto', 'solicitarPresupuesto.php')" type="submit" class="btn btn-primary">Solicitar</button><br><br>
 						<div class="panel panel-default">
-						  <div class="panel-body" id="validarIBAN_res" style="min-height: 180px;">
+						  <div class="panel-body" id="solicitarPresupuesto_res" style="min-height: 180px;">
 						    Resultado
 						  </div>
 						</div>
@@ -110,7 +110,7 @@ function submit(nombre, url) {
 					<div class="navbar-form">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto"  placeholder="Fecha presupuesto" type="date">
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto"  placeholder="Fecha presupuesto" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto2" placeholder="ID cliente" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto3" placeholder="Referencia producto" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto4" placeholder="Cantidad producto" type="text">
