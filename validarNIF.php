@@ -1,5 +1,5 @@
 <?php
-
+ini_set("soap.wsdl_cache_enabled", 0);
 $nif = $_POST['datos'];
 
 $SoapKey = $_POST['SoapKey'];
@@ -18,8 +18,11 @@ $cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica
 $respuesta = $cliente->validarNIF( new validarNIF($nif, $SoapKey));
 
 //var_dump($respuesta); 
-
-if($respuesta->validado == true){
+print "b".$respuesta->error;
+if($respuesta->error != ""){
+	print $respuesta->error;
+}
+else if($respuesta->validado == true){
 	print 'NIF válido';
 }
 else{

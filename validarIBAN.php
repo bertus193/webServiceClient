@@ -1,5 +1,5 @@
-<?php
-
+<?php //ES0690000001210123456789
+ini_set("soap.wsdl_cache_enabled", 0);
 $iban = $_POST['datos'];
 
 $SoapKey = $_POST['SoapKey'];

@@ -1,5 +1,5 @@
 <?php
-
+ini_set("soap.wsdl_cache_enabled", 0);
 $cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
 //obtener las funciones a las que puedo llamar
