@@ -13,20 +13,24 @@ class validarIBAN {
 	}
 }
 
-$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
+try{
+	$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-$respuesta = $cliente->validarIBAN( new validarIBAN($iban, $SoapKey));
+	$respuesta = $cliente->validarIBAN( new validarIBAN($iban, $SoapKey));
 
-//var_dump($respuesta); 
-if($respuesta->error == "Error Validación SOAPKey"){
-	print $respuesta->error;
-}
-else if($respuesta->valido == true){
-	print 'IBAN válido';
-}
-else{
-	print 'IBAN inválido</br>';
-	print $respuesta->error;
-}
+	//var_dump($respuesta); 
+	if($respuesta->error == "Error Validación SOAPKey"){
+		print $respuesta->error;
+	}
+	else if($respuesta->valido == true){
+		print 'IBAN válido';
+	}
+	else{
+		print 'IBAN inválido</br>';
+		print $respuesta->error;
+	}
 
+}catch (SoapFault $e){
+	print 'No hay conexión con el WebService';	
+}
 ?>

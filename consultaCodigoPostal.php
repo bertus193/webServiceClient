@@ -13,24 +13,29 @@ class consultaCodigoPostal {
 	}
 }
 
-$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
+try{
+		
+	$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-$respuesta = $cliente->consultaCodigoPostal( new consultaCodigoPostal($codigo, $SoapKey));
+	$respuesta = $cliente->consultaCodigoPostal( new consultaCodigoPostal($codigo, $SoapKey));
 
-//var_dump($respuesta); 
+	//var_dump($respuesta); 
 
-if($respuesta->error != ""){
-	print $respuesta->error;
+	if($respuesta->error != ""){
+		print $respuesta->error;
+	}
+	else if($respuesta->poblacion == null){
+		print 'No existe el código postal '.$respuesta->codigoPostal.' en la base de datos';
+	}
+	else{
+		print '<div class="list-group table-of-contents">
+	              <a class="list-group-item" href="#">Código Postal: '.$respuesta->codigoPostal.'</a>
+	              <a class="list-group-item" href="#">Ciudad: '.$respuesta->poblacion.'</a>
+	              <a class="list-group-item" href="#">Provincia: '.$respuesta->provincia.'</a>
+	            </div>';
+	}
+
+}catch (SoapFault $e){
+	print 'No hay conexión con el WebService';	
 }
-else if($respuesta->poblacion == null){
-	print 'No existe el código postal '.$respuesta->codigoPostal.' en la base de datos';
-}
-else{
-	print '<div class="list-group table-of-contents">
-              <a class="list-group-item" href="#">Código Postal: '.$respuesta->codigoPostal.'</a>
-              <a class="list-group-item" href="#">Ciudad: '.$respuesta->poblacion.'</a>
-              <a class="list-group-item" href="#">Provincia: '.$respuesta->provincia.'</a>
-            </div>';
-}
-
 ?>

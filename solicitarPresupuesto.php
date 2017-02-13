@@ -17,24 +17,30 @@ class solicitarPresupuesto {
 	}
 }
 
-$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
+try{
 
-$respuesta = $cliente->solicitarPresupuesto( new solicitarPresupuesto($referenciaPieza, $idProveedor, $SoapKey));
+	$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-//var_dump($respuesta); 
+	$respuesta = $cliente->solicitarPresupuesto( new solicitarPresupuesto($referenciaPieza, $idProveedor, $SoapKey));
 
-if($respuesta->error != ""){
-	print $respuesta->error;
-}
-else if($respuesta->precioPieza >= 0){
-	print '<div class="list-group table-of-contents">
-              <a class="list-group-item" href="#">Precio Pieza: '.$respuesta->precioPieza.'</a>
-              <a class="list-group-item" href="#">Disponibilidad Pieza: '.$respuesta->disponiblidadPieza.'</a>
-              <a class="list-group-item" href="#">Fecha Disponibilidad Pieza: '.date("d-m-Y", strtotime($respuesta->fechaDisponibilidadPieza)).'</a>
-            </div>';
-}
-else{
-	print 'No se ha encontrado ningún presupuesto';
+	//var_dump($respuesta); 
+
+	if($respuesta->error != ""){
+		print $respuesta->error;
+	}
+	else if($respuesta->precioPieza >= 0){
+		print '<div class="list-group table-of-contents">
+	              <a class="list-group-item" href="#">Precio Pieza: '.$respuesta->precioPieza.'</a>
+	              <a class="list-group-item" href="#">Disponibilidad Pieza: '.$respuesta->disponiblidadPieza.'</a>
+	              <a class="list-group-item" href="#">Fecha Disponibilidad Pieza: '.date("d-m-Y", strtotime($respuesta->fechaDisponibilidadPieza)).'</a>
+	            </div>';
+	}
+	else{
+		print 'No se ha encontrado ningún presupuesto';
+	}
+
+}catch (SoapFault $e){
+	print 'No hay conexión con el WebService';	
 }
 
 ?>

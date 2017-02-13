@@ -22,20 +22,26 @@ class generarPresupuesto {
 	}
 }
 
-$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
+try{
+	
+	$cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-$respuesta = $cliente->generarPresupuesto( new generarPresupuesto($fechaPresupuesto, $idCliente, $referenciaProducto, $cantidadProducto, $SoapKey));
+	$respuesta = $cliente->generarPresupuesto( new generarPresupuesto($fechaPresupuesto, $idCliente, $referenciaProducto, $cantidadProducto, $SoapKey));
 
-//var_dump($respuesta); 
+	//var_dump($respuesta); 
 
-if($respuesta->error != ""){
-	print $respuesta->error;
-}
-else if($respuesta->presupuestoGeneradoCorrectamente == 1){
-	print 'El presupuesto '.$respuesta->idPresupuesto.' se ha generado correctamente.';
-}
-else{
-	print 'Ha habido algún error';
+	if($respuesta->error != ""){
+		print $respuesta->error;
+	}
+	else if($respuesta->presupuestoGeneradoCorrectamente == 1){
+		print 'El presupuesto '.$respuesta->idPresupuesto.' se ha generado correctamente.';
+	}
+	else{
+		print 'Ha habido algún error';
+	}
+
+}catch (SoapFault $e){
+	print 'No hay conexión con el WebService';	
 }
 
 ?>
