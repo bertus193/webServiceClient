@@ -2,6 +2,8 @@
 
 $nif = $_POST['datos'];
 
+$SoapKey = $_POST['SoapKey'];
+
 class validarNIF {
     public $nifSinValidar;
     public $SoapKey;
@@ -13,7 +15,7 @@ class validarNIF {
 
 $cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-$respuesta = $cliente->validarNIF( new validarNIF($nif, "asdhfkashfaskfhsakdfhlskfhas"));
+$respuesta = $cliente->validarNIF( new validarNIF($nif, $SoapKey));
 
 //var_dump($respuesta); 
 

@@ -2,6 +2,8 @@
 
 $iban = $_POST['datos'];
 
+$SoapKey = $_POST['SoapKey'];
+
 class validarIBAN {
 	public $ibanSinValidar;
 	public $SoapKey;

@@ -5,6 +5,8 @@ $idCliente = $_POST['datos2'];
 $referenciaProducto = $_POST['datos3'];
 $cantidadProducto = $_POST['datos4'];
 
+$SoapKey = $_POST['SoapKey'];
+
 class generarPresupuesto {
 	public $fechaPresupuesto;
 	public $idCliente;

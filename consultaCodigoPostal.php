@@ -2,6 +2,8 @@
 
 $codigo = $_POST['datos'];
 
+$SoapKey = $_POST['SoapKey'];
+
 class consultaCodigoPostal {
 	public $codigo;
 	public $SoapKey;
