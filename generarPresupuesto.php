@@ -24,7 +24,7 @@ class generarPresupuesto {
 
 $cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-$respuesta = $cliente->generarPresupuesto( new generarPresupuesto($fechaPresupuesto, $idCliente, $referenciaProducto, $cantidadProducto, "asdhfkashfaskfhsakdfhlskfhas"));
+$respuesta = $cliente->generarPresupuesto( new generarPresupuesto($fechaPresupuesto, $idCliente, $referenciaProducto, $cantidadProducto, $SoapKey));
 
 //var_dump($respuesta); 
 

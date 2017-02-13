@@ -18,7 +18,6 @@ $cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica
 $respuesta = $cliente->validarNIF( new validarNIF($nif, $SoapKey));
 
 //var_dump($respuesta); 
-print "b".$respuesta->error;
 if($respuesta->error != ""){
 	print $respuesta->error;
 }

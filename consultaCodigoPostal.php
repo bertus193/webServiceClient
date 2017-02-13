@@ -15,7 +15,7 @@ class consultaCodigoPostal {
 
 $cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-$respuesta = $cliente->consultaCodigoPostal( new consultaCodigoPostal($codigo, "asdhfkashfaskfhsakdfhlskfhas"));
+$respuesta = $cliente->consultaCodigoPostal( new consultaCodigoPostal($codigo, $SoapKey));
 
 //var_dump($respuesta); 
 

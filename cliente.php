@@ -7,7 +7,7 @@
 
 function submit(nombre, url) {
 	var SoapKey, datos, datos2, datos3, datos4 = "";
-	SoapKey = document.getElementById('SoapKey').value;
+	SoapKey = document.getElementById(nombre+'_SoapKey').value;
 	datos = document.getElementById(nombre).value;
 
 	if(document.getElementById(nombre+'2')){ //generarPresupuesto
@@ -37,7 +37,7 @@ function submit(nombre, url) {
 			<div class="col-lg-5 breadcrumb" style="margin-right:5px;height: 280px;">
 				<h1>ValidarNIF</h1>
 					<div class="navbar-form">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="validarNIF_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
 						<div class="form-group">
 							<input class="form-control" id="validarNIF" placeholder="NIF" type="text" style="width: 322px;">
@@ -53,7 +53,7 @@ function submit(nombre, url) {
 			<div class="col-lg-5 breadcrumb" style="margin-right:5px">
 				<h1>ValidarIBAN</h1>
 					<div class="navbar-form">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="validarIBAN_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
 						<div class="form-group">
 							<input class="form-control" id="validarIBAN" placeholder="IBAN" type="text" style="width: 330px;">
@@ -71,7 +71,7 @@ function submit(nombre, url) {
 			<div class="col-lg-5 breadcrumb" style="margin-right:5px;height: 459px;">
 				<h1>consultaCodigoPostal</h1>
 					<div class="navbar-form">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="consultaCodigoPostal_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
 						<div class="form-group">
 							<input class="form-control" id="consultaCodigoPostal" placeholder="Código Postal" type="text" style="width: 330px;">
@@ -87,7 +87,7 @@ function submit(nombre, url) {
 			<div class="col-lg-5 breadcrumb" style="margin-right:5px">
 				<h1>solicitarPresupuesto</h1>
 					<div class="navbar-form">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="solicitarPresupuesto_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="referenciaPieza" placeholder="Referencia pieza" type="text">
 						<div class="form-group">
@@ -106,7 +106,7 @@ function submit(nombre, url) {
 			<div class="col-lg-5 breadcrumb" style="margin-right:5px">
 				<h1>generarPresupuesto</h1>
 					<div class="navbar-form">
-						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
+						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto_SoapKey" value="asdhfkashfaskfhsakdfhlskfhas"
  placeholder="SOAP Key" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto"  placeholder="Fecha presupuesto" type="text">
 						<input style="width: 100%;margin-bottom: 7px;" class="form-control" id="generarPresupuesto2" placeholder="ID cliente" type="text">

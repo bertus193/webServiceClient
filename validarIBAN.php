@@ -15,11 +15,13 @@ class validarIBAN {
 
 $cliente = new SoapClient("http://127.0.0.1:9080/practica1MTIS/services/practica1WSDL?wsdl");
 
-$respuesta = $cliente->validarIBAN( new validarIBAN($iban, "asdhfkashfaskfhsakdfhlskfhas"));
+$respuesta = $cliente->validarIBAN( new validarIBAN($iban, $SoapKey));
 
 //var_dump($respuesta); 
-
-if($respuesta->valido == true){
+if($respuesta->error == "Error Validación SOAPKey"){
+	print $respuesta->error;
+}
+else if($respuesta->valido == true){
 	print 'IBAN válido';
 }
 else{
