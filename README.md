@@ -1,5 +1,3 @@
 # Web Service Client
 
-- PHP
-- Javascript
-- JQuery
+Simple cliente PHP para realizar peticiones a APIRest mediante JQuery. 
